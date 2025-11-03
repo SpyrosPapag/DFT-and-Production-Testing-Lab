@@ -1,0 +1,14 @@
+* Name of circuit:  mycirc.bench
+* Primary inputs :
+  A B C D E 
+  
+* Primary outputs:
+  F 
+
+* Test patterns and fault free responses:
+
+   1: 11011 1
+   2: 01101 0
+   3: 01110 0
+   4: 10111 1
+   5: 10011 0

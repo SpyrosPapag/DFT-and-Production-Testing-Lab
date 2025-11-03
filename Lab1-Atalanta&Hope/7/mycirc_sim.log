@@ -1,0 +1,42 @@
+test    1: 11011 1    2 faults detected
+test    2: 01101 0    4 faults detected
+test    3: 01110 0    2 faults detected
+test    4: 10111 1    2 faults detected
+test    5: 10011 0    4 faults detected
+	*******************************************************
+	*                                                     *
+	*             Welcome to HOPE (version 2.0)           *
+	*                                                     *
+	*                Dong S. Ha (ha@vt.edu)               *
+	*         Web: http://www.visc.vt.edu/people/ha       *
+	*  Virginia Polytechnic Institute & State University  *
+	*                                                     *
+	*******************************************************
+
+******   SUMMARY OF SIMULATION RESULTS   ******
+1. Circuit structure
+   Name of circuit                           : mycirc
+   Number of primary inputs                  : 5
+   Number of primary outputs                 : 1
+   Number of combinational gates             : 4
+   Number of flip-flops                      : 0
+   Level of the circuit                      : 3
+
+2. Simulator input parameters
+   Simulation mode                           : file (..\Atalanta\mycirc.test)
+
+3. Simulation results
+   Number of test patterns applied           : 5
+   Fault coverage                            : 100.000 %
+   Number of collapsed faults                : 10
+   Number of detected faults                 : 10
+   Number of undetected faults               : 0
+
+4. Memory used                               : 167862 Kbytes
+
+5. CPU time
+   Initialization                            : 1428571.083 secs
+   Fault simulation                          : 0.000 secs
+   Total                                     : 1428571.083 secs
+
+* List of undetected faults:

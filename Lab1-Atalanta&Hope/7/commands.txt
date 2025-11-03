@@ -1,0 +1,3 @@
+atalanta -l mycirc_atpg.log mycirc.bench
+
+hope -t ..\Atalanta\mycirc.test -N -F mycirc.F -l mycirc_sim.log mycirc.bench

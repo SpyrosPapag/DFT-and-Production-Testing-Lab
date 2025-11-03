@@ -1,0 +1,1 @@
+atalanta -l s9234_atpg.log -r 48 s9234.bench

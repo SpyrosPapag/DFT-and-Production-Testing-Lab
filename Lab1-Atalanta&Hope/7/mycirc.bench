@@ -1,0 +1,11 @@
+# mycirc
+INPUT(A)
+INPUT(B)
+INPUT(C)
+INPUT(D)
+INPUT(E)
+OUTPUT(F)
+g1 = AND(A, B)
+g2 = AND(C, D)
+g3 = OR(g1, g2)
+F = AND(g3, E)

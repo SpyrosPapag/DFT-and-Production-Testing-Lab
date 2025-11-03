@@ -1,0 +1,3 @@
+atalanta -l c880o_atpg.log -D 5 c880o.bench
+
+hope -t ..\Atalanta\c880o.test -N -F c880o.F -l c880o_sim.log c880o.bench
