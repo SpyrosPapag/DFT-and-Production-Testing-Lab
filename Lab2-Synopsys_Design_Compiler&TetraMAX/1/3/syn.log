@@ -1,0 +1,422 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version T-2022.03-SP1 for linux64 - Apr 14, 2022 
+
+                    Copyright (c) 1988 - 2022 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+set mydesign c1355
+c1355
+remove_design -all
+1
+analyze -f verilog ${mydesign}.v
+Running PRESTO HDLC
+Compiling source file ./c1355.v
+Presto compilation completed successfully.
+Loading db file '/home/eda/libraries/UMCL18U250D2_2.4/design_compiler/umcl18u250t2_wc.db'
+1
+elaborate $mydesign
+Loading db file '/home/eda/synopsys/syn/T-2022.03-SP1/libraries/syn/gtech.db'
+Loading db file '/home/eda/synopsys/syn/T-2022.03-SP1/libraries/syn/standard.sldb'
+Warning: The library named umcl18u250t2_wc specifies a very small trip-point value (0). (TIM-163)
+Warning: The library named umcl18u250t2_wc specifies a very small trip-point value (0). (TIM-163)
+  Loading link library 'umcl18u250t2_wc'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully. (c1355)
+Elaborated 1 design.
+Current design is now 'c1355'.
+1
+current_design $mydesign
+Current design is 'c1355'.
+{c1355}
+create_clock -period 8  -name clk
+Warning: Creating virtual clock named 'clk' with no sources. (UID-348)
+1
+set_clock_latency    2  clk
+1
+set_input_delay      2 -clock clk [remove_from_collection [all_inputs] clk]
+Warning: Nothing implicitly matched 'clk' (SEL-003)
+1
+set_output_delay     2 -clock clk [all_outputs]
+1
+set_driving_cell -library umcl18u250t2_wc -lib_cell INVD1 [remove_from_collection [all_inputs] clk]
+Warning: Nothing implicitly matched 'clk' (SEL-003)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+1
+set_load 0.1 [all_outputs]
+1
+set_max_fanout 8 [all_inputs]
+1
+set_fanout_load 8 [all_outputs]
+1
+set_max_area 0
+1
+compile
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | T-2022.03-DWBB_202203.1 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler                                                                   |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 930                                    |
+| Number of User Hierarchies                              | 0                                      |
+| Sequential Cell Count                                   | 0                                      |
+| Macro Count                                             | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 2                                      |
+| Number of VT Class                                      | 0                                      |
+| Number of Clocks                                        | 1                                      |
+| Number of Dont Touch Cells                              | 0                                      |
+| Number of Dont Touch Nets                               | 0                                      |
+| Number of Size Only Cells                               | 0                                      |
+| Design with UPF Data                                    | false                                  |
+====================================================================================================
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'c1355'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01    5244.6      0.00       0.0       8.0                          
+    0:00:01    5244.6      0.00       0.0       8.0                          
+    0:00:01    5244.6      0.00       0.0       8.0                          
+    0:00:01    5244.6      0.00       0.0       8.0                          
+    0:00:01    5244.6      0.00       0.0       8.0                          
+    0:00:01    4236.4      0.16       2.4       8.0                          
+    0:00:02    4236.4      0.11       2.5       8.0                          
+    0:00:02    4264.9      0.13       2.4       8.0                          
+    0:00:02    4516.9      0.26       1.0       8.0                          
+    0:00:02    4390.9      0.48       0.7       8.0                          
+    0:00:02    4346.2      0.34       2.0       8.0                          
+    0:00:02    4362.5      0.38       2.2       8.0                          
+    0:00:02    4443.8      0.36       1.7       8.0                          
+    0:00:02    4447.8      0.35       2.2       8.0                          
+    0:00:02    4492.5      0.16       0.5       8.0                          
+    0:00:02    4557.6      0.05       0.1       8.0                          
+    0:00:02    4598.3      0.01       0.0       8.0                          
+    0:00:02    4598.3      0.01       0.0       8.0                          
+    0:00:02    4602.3      0.00       0.0       8.0                          
+    0:00:02    4602.3      0.00       0.0       8.0                          
+    0:00:02    4602.3      0.00       0.0       8.0                          
+    0:00:02    4602.3      0.00       0.0       8.0                          
+    0:00:02    4602.3      0.00       0.0       8.0                          
+    0:00:02    4602.3      0.00       0.0       8.0                          
+    0:00:02    4602.3      0.00       0.0       8.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02    4602.3      0.00       0.0       8.0                          
+    0:00:02    4602.3      0.00       0.0       8.0                          
+    0:00:02    4602.3      0.00       0.0       8.0                          
+
+
+  Beginning Design Rule Fixing  (max_fanout)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02    4602.3      0.00       0.0       8.0                          
+    0:00:02    4618.6      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (max_area 0)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02    4618.6      0.00       0.0       0.0                          
+    0:00:02    4618.6      0.00       0.0       0.0                          
+    0:00:02    4582.0      0.00       0.0       0.0                          
+    0:00:02    4582.0      0.00       0.0       0.0                          
+    0:00:02    4582.0      0.00       0.0       0.0                          
+    0:00:02    4582.0      0.00       0.0       0.0                          
+    0:00:02    4582.0      0.00       0.0       0.0                          
+    0:00:02    4468.2      0.00       0.0       0.0                          
+    0:00:02    4464.1      0.00       0.0       0.0                          
+    0:00:02    4464.1      0.00       0.0       0.0                          
+    0:00:02    4464.1      0.00       0.0       0.0                          
+    0:00:02    4464.1      0.00       0.0       0.0                          
+    0:00:02    4464.1      0.00       0.0       0.0                          
+    0:00:02    4464.1      0.00       0.0       0.0                          
+    0:00:02    4451.9      0.00       0.0       0.0                          
+    0:00:02    4451.9      0.00       0.0       0.0                          
+    0:00:02    4451.9      0.00       0.0       0.0                          
+    0:00:02    4451.9      0.00       0.0       0.0                          
+    0:00:02    4451.9      0.00       0.0       0.0                          
+    0:00:02    4451.9      0.00       0.0       0.0                          
+    0:00:02    4451.9      0.00       0.0       0.0                          
+Loading db file '/home/eda/libraries/UMCL18U250D2_2.4/design_compiler/umcl18u250t2_wc.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+check_design
+1
+report_constraint -all_violators
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : c1355
+Version: T-2022.03-SP1
+Date   : Mon Jun  2 16:04:20 2025
+****************************************
+
+
+   max_area
+
+                             Required        Actual
+   Design                      Area           Area           Slack
+   -----------------------------------------------------------------
+   c1355                        0.00        4451.90       -4451.90  (VIOLATED)
+
+
+1
+write -format verilog -hierarchy -output ${mydesign}_synth.v
+Writing verilog file '/home/students/.../3/c1355_synth.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+1
+write_sdf ${mydesign}_synth.sdf
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/students/.../3/c1355_synth.sdf'. (WT-3)
+1
+write_sdc  ${mydesign}.sdc
+1
+report_area
+ 
+****************************************
+Report : area
+Design : c1355
+Version: T-2022.03-SP1
+Date   : Mon Jun  2 16:04:20 2025
+****************************************
+
+Library(s) Used:
+
+    umcl18u250t2_wc (File: /home/eda/libraries/UMCL18U250D2_2.4/design_compiler/umcl18u250t2_wc.db)
+
+Number of ports:                           73
+Number of nets:                           246
+Number of cells:                          205
+Number of combinational cells:            205
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                         44
+Number of references:                      32
+
+Combinational area:               4451.899924
+Buf/Inv area:                      361.790005
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                  4451.899924
+Total area:                 undefined
+1
+report_timing
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : c1355
+Version: T-2022.03-SP1
+Date   : Mon Jun  2 16:04:20 2025
+****************************************
+
+Operating Conditions: nom_pvt   Library: umcl18u250t2_wc
+Wire Load Model Mode: top
+
+  Startpoint: G7 (input port clocked by clk)
+  Endpoint: G1348 (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              2.00       2.00
+  input external delay                     2.00       4.00 r
+  G7 (in)                                  0.09       4.09 r
+  U213/Z (INVD2)                           0.06       4.15 f
+  U184/Z (EXOR2D1)                         0.19       4.33 r
+  U338/Z (EXOR3D1)                         0.29       4.62 f
+  U161/Z (EXOR2D1)                         0.26       4.88 r
+  U337/Z (AND3D1)                          0.21       5.09 r
+  U258/Z (NOR3D1)                          0.09       5.18 f
+  U242/Z (OAI32D2)                         0.55       5.72 r
+  U273/Z (INVDL)                           0.10       5.82 f
+  U218/Z (NOR2D2)                          0.11       5.93 r
+  U264/Z (OR2DL)                           0.10       6.03 r
+  U214/Z (AOI22DL)                         0.12       6.15 f
+  U215/Z (OAI32DL)                         0.14       6.29 r
+  U314/Z (NOR3M1D1)                        0.28       6.57 r
+  U236/Z (AND2DL)                          0.36       6.93 r
+  U228/Z (NAN2DL)                          0.12       7.04 f
+  U226/Z (AOI32DL)                         0.95       8.00 r
+  G1348 (out)                              0.00       8.00 r
+  data arrival time                                   8.00
+
+  clock clk (rise edge)                    8.00       8.00
+  clock network delay (ideal)              2.00      10.00
+  output external delay                   -2.00       8.00
+  data required time                                  8.00
+  -----------------------------------------------------------
+  data required time                                  8.00
+  data arrival time                                  -8.00
+  -----------------------------------------------------------
+  slack (MET)                                         0.00
+
+
+1
+quit
+Memory usage for this session 149 Mbytes.
+Memory usage for this session including child processes 149 Mbytes.
+CPU usage for this session 5 seconds ( 0.00 hours ).
+Elapsed time for this session 6 seconds ( 0.00 hours ).
+
+Thank you...

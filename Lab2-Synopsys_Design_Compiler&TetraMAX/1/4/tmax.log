@@ -1,0 +1,121 @@
+WARNING:  file defined by STDMACROS environment variable was not found at:
+          '/home/eda/synopsys/syn/T-2022.03-SP1/auxx/syn/stdmacros.dat'
+
+WARNING:  User's Guide 'tmax_ug.pdf' missing or no read permission. Was expected at:
+          '/home/eda/synopsys/syn/T-2022.03-SP1/doc/test/tmax/tmax_ug.pdf'
+
+                             Synopsys TestMAX (TM) 
+                                  TetraMAX (R)
+
+               Version T-2022.03-SP1 for linux64 - Apr 14, 2022  
+
+                    Copyright (c) 1996 - 2022 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+
+read netlist $UMC_LIB/verilog_simulation_models/*.v
+ Begin reading netlists ( $UMC_LIB/verilog_simulation_models/*.v )...
+ End reading netlists: #files=506, #errors=0, #modules=530, top=NOR4M2D4, #lines=29130, CPU_time=0.07 sec, Memory=10MB
+read netlist c1355_synth.v
+ Begin reading netlist ( c1355_synth.v )...
+ End parsing Verilog file c1355_synth.v with 0 errors.
+ End reading netlist: #modules=1, top=c1355, #lines=279, CPU_time=0.00 sec, Memory=0MB
+run build_model c1355
+ ------------------------------------------------------------------------------
+ Begin build model for topcut = c1355 ...
+ ------------------------------------------------------------------------------
+ There were 32 primitives and 0 faultable pins removed during model optimizations
+ End build model: #primitives=378, CPU_time=0.00 sec, Memory=0MB
+ ------------------------------------------------------------------------------
+ Begin learning analyses...
+ End learning analyses, total learning CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+run drc
+ ------------------------------------------------------------------------------
+ Begin scan design rules checking...
+ ------------------------------------------------------------------------------
+ Begin simulating test protocol procedures...
+ Test protocol simulation completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin scan chain operation checking...
+ Scan chain operation checking completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin tracing connection cones...
+ Tracing connection cones completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin nonscan rules checking...
+ Nonscan cell summary: #DFF=0  #DLAT=0  #RAM_outs=0  tla_usage_type=none
+ Nonscan rules checking completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin DRC dependent learning...
+ Fast-sequential depth results: control=0(0), observe=0(0), detect=0(0), CPU time=0.00 sec
+ DRC dependent learning completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin set operation for load unload constant latches...
+ Set operation for load unload constant latches completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ DRC Summary Report
+ ------------------------------------------------------------------------------
+ No violations occurred during DRC process.
+ Design rules checking was successful, total CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+
+set pattern external c1355_test_set.v
+ End parsing Verilog file c1355_test_set.v with 0 errors.
+ End reading 127 patterns, CPU_time = 0.00 sec, Memory = 0MB
+read faults c1355_faults.dat
+ Warning: 552 invalid fault sites were ignored (first occ. at line 4). (M107)
+ 1614 faults were read in and 1062 new faults were added to fault list.
+run fault_sim
+ Simulation performed for 1062 faults on circuit size of 378 gates.
+ --------------------------------------------
+ #patterns     #faults     test      process
+ simulated  detect/active  coverage  CPU time
+ ---------  -------------  --------  --------
+ 32            832    230    78.34%      0.00
+ 64            114    116    89.08%      0.00
+ 96             82     34    96.80%      0.00
+ 127            31      3    99.72%      0.00
+ Fault simulation completed: #patterns=127, CPU time=0.00
+
+report summaries
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       1059
+ Possibly detected                PT          0
+ Undetectable                     UD          0
+ ATPG untestable                  AU          0
+ Not detected                     ND          3
+ -----------------------------------------------
+ total faults                              1062
+ test coverage                            99.72%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                           0
+ #external patterns (c1355_test_set.v)      127
+     #basic_scan patterns                   127
+ -----------------------------------------------
+write faults not_detected_faults.dat -class ND -uncollapsed -replace
+ Write faults completed: 3 faults were written into file "not_detected_faults.dat".
+write faults uncolapsed_detected_faults.dat -class DT -uncollapsed -replace
+ Write faults completed: 1059 faults were written into file "uncolapsed_detected_faults.dat".
+write faults colapsed_detected_faults.dat -class DT -collapsed -replace
+ Write faults completed: 762 faults were written into file "colapsed_detected_faults.dat".
+
+quit

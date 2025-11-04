@@ -1,0 +1,127 @@
+WARNING:  file defined by STDMACROS environment variable was not found at:
+          '/home/eda/synopsys/syn/T-2022.03-SP1/auxx/syn/stdmacros.dat'
+
+WARNING:  User's Guide 'tmax_ug.pdf' missing or no read permission. Was expected at:
+          '/home/eda/synopsys/syn/T-2022.03-SP1/doc/test/tmax/tmax_ug.pdf'
+
+                             Synopsys TestMAX (TM) 
+                                  TetraMAX (R)
+
+               Version T-2022.03-SP1 for linux64 - Apr 14, 2022  
+
+                    Copyright (c) 1996 - 2022 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+
+read netlist s1423_scan_netlist.v
+ Begin reading netlist ( s1423_scan_netlist.v )...
+ End parsing Verilog file s1423_scan_netlist.v with 0 errors.
+ End reading netlist: #modules=133, top=s1423, #lines=1249, CPU_time=0.00 sec, Memory=0MB
+read netlist $UMC_LIB/verilog_simulation_models/*.v
+ Begin reading netlists ( $UMC_LIB/verilog_simulation_models/*.v )...
+ End reading netlists: #files=506, #errors=0, #modules=472, top=NOR4M2D4, #lines=29130, CPU_time=0.07 sec, Memory=10MB
+run build_model s1423
+ ------------------------------------------------------------------------------
+ Begin build model for topcut = s1423 ...
+ ------------------------------------------------------------------------------
+ There were 955 primitives and 0 faultable pins removed during model optimizations
+ Warning: Rule B8 (unconnected module input pin) was violated 2 times.
+ Warning: Rule N21 (unsupported UDP entry) was violated 1 times.
+ End build model: #primitives=756, CPU_time=0.00 sec, Memory=1MB
+ ------------------------------------------------------------------------------
+ Begin learning analyses...
+ End learning analyses, total learning CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+set drc s1423.spf
+run drc
+ ------------------------------------------------------------------------------
+ Begin scan design rules checking...
+ ------------------------------------------------------------------------------
+ Begin reading test protocol file s1423.spf...
+ End parsing STIL file s1423.spf with 0 errors.
+ Test protocol file reading completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin simulating test protocol procedures...
+ Test protocol simulation completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin scan chain operation checking...
+ Chain 1 successfully traced with 74 scan_cells.
+ Scan chain operation checking completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin clock rules checking...
+ Clock rules checking completed, CPU time=0.00 sec.
+ Performing clock grouping analysis for 1 clock.
+ Clock grouping results: #pairs=0, #groups=0, #serial_pairs=0, #disturbed_pairs=0, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin tracing connection cones...
+ Tracing connection cones completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin nonscan rules checking...
+ Nonscan cell summary: #DFF=0  #DLAT=0  #RAM_outs=0  tla_usage_type=none
+ Nonscan rules checking completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin DRC dependent learning...
+ Fast-sequential depth results: control=0(0), observe=0(0), detect=0(0), CPU time=0.00 sec
+ DRC dependent learning completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin set operation for load unload constant latches...
+ Set operation for load unload constant latches completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ DRC Summary Report
+ ------------------------------------------------------------------------------
+ No violations occurred during DRC process.
+ Design rules checking was successful, total CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+
+add faults -all
+ 3278 faults were added to fault list.
+set pattern internal
+run atpg
+ ATPG performed for stuck fault model using internal pattern source.
+ ----------------------------------------------------------
+ #patterns     #faults     #ATPG faults  test      process
+ stored     detect/active  red/au/abort  coverage  CPU time
+ ---------  -------------  ------------  --------  --------
+ Begin deterministic ATPG: #uncollapsed_faults=2749, abort_limit=10...
+ 29           2147    602         0/0/0    81.61%      0.00
+ 54            296    306         0/0/0    90.65%      0.00
+ 83            173    133         0/0/0    95.94%      0.01
+ 110            96     37         0/0/0    98.87%      0.01
+ 130            37      0         0/0/0   100.00%      0.01
+ 
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       3274
+ Possibly detected                PT          0
+ Undetectable                     UD          4
+ ATPG untestable                  AU          0
+ Not detected                     ND          0
+ -----------------------------------------------
+ total faults                              3278
+ test coverage                           100.00%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                         130
+     #basic_scan patterns                   130
+ -----------------------------------------------
+write patterns s1423_1chain_myvectors.v -format stil -nocompaction -serial -type basic_scan -replace
+ 130 patterns of possible 130 patterns were selected based on type.
+ Patterns written reference 394 V statements, generating 9957 test cycles
+ End writing file 's1423_1chain_myvectors.v' with 130 patterns, File_size = 50351, CPU_time = 0.0 sec.
+quit

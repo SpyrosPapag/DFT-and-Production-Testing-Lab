@@ -1,0 +1,16 @@
+read netlist $UMC_LIB/verilog_simulation_models/*.v
+read netlist c1355_synth.v
+run build_model c1355
+run drc
+
+set pattern external c1355_test_set.v
+add faults -all 
+remove faults -Module AOI32D1
+run fault_sim
+
+report summaries
+write faults not_detected_faults.dat -class ND -uncollapsed -replace
+write faults uncolapsed_detected_faults.dat -class DT -uncollapsed -replace
+write faults colapsed_detected_faults.dat -class DT -collapsed -replace
+
+quit

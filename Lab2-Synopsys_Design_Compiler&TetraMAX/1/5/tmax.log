@@ -1,0 +1,428 @@
+WARNING:  file defined by STDMACROS environment variable was not found at:
+          '/home/eda/synopsys/syn/T-2022.03-SP1/auxx/syn/stdmacros.dat'
+
+WARNING:  User's Guide 'tmax_ug.pdf' missing or no read permission. Was expected at:
+          '/home/eda/synopsys/syn/T-2022.03-SP1/doc/test/tmax/tmax_ug.pdf'
+
+                             Synopsys TestMAX (TM) 
+                                  TetraMAX (R)
+
+               Version T-2022.03-SP1 for linux64 - Apr 14, 2022  
+
+                    Copyright (c) 1996 - 2022 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+
+read netlist $UMC_LIB/verilog_simulation_models/*.v
+ Begin reading netlists ( $UMC_LIB/verilog_simulation_models/*.v )...
+ End reading netlists: #files=506, #errors=0, #modules=530, top=NOR4M2D4, #lines=29130, CPU_time=0.07 sec, Memory=10MB
+read netlist c7552_synth.v
+ Begin reading netlist ( c7552_synth.v )...
+ End parsing Verilog file c7552_synth.v with 0 errors.
+ End reading netlist: #modules=1, top=c7552, #lines=1068, CPU_time=0.00 sec, Memory=0MB
+run build_model c7552
+ ------------------------------------------------------------------------------
+ Begin build model for topcut = c7552 ...
+ ------------------------------------------------------------------------------
+ There were 103 primitives and 0 faultable pins removed during model optimizations
+ End build model: #primitives=1626, CPU_time=0.00 sec, Memory=1MB
+ ------------------------------------------------------------------------------
+ Begin learning analyses...
+ End learning analyses, total learning CPU time=0.01 sec.
+ ------------------------------------------------------------------------------
+run drc
+ ------------------------------------------------------------------------------
+ Begin scan design rules checking...
+ ------------------------------------------------------------------------------
+ Begin simulating test protocol procedures...
+ Test protocol simulation completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin scan chain operation checking...
+ Scan chain operation checking completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin tracing connection cones...
+ Tracing connection cones completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin nonscan rules checking...
+ Nonscan cell summary: #DFF=0  #DLAT=0  #RAM_outs=0  tla_usage_type=none
+ Nonscan rules checking completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin DRC dependent learning...
+ Fast-sequential depth results: control=0(0), observe=0(0), detect=0(0), CPU time=0.00 sec
+ DRC dependent learning completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin set operation for load unload constant latches...
+ Set operation for load unload constant latches completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ DRC Summary Report
+ ------------------------------------------------------------------------------
+ No violations occurred during DRC process.
+ Design rules checking was successful, total CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+
+add faults -all
+ 6852 faults were added to fault list.
+set pattern external c7552_test_set_10.v
+ End parsing Verilog file c7552_test_set_10.v with 0 errors.
+ End reading 10 patterns, CPU_time = 0.00 sec, Memory = 0MB
+run fault_sim
+ Simulation performed for 6852 faults on circuit size of 1626 gates.
+ --------------------------------------------
+ #patterns     #faults     test      process
+ simulated  detect/active  coverage  CPU time
+ ---------  -------------  --------  --------
+ 10           4514   2338    65.88%      0.00
+ Fault simulation completed: #patterns=10, CPU time=0.00
+report summaries
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       4514
+ Possibly detected                PT          0
+ Undetectable                     UD          0
+ ATPG untestable                  AU          0
+ Not detected                     ND       2338
+ -----------------------------------------------
+ total faults                              6852
+ test coverage                            65.88%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                           0
+ #external patterns (c7552_test_set_10.v)     10
+     #basic_scan patterns                    10
+ -----------------------------------------------
+add faults -all
+ 6852 existing faults were removed from the fault list.
+ 6852 faults were added to fault list.
+set pattern external c7552_test_set_50.v
+ Warning: Current external pattern set is now deleted. (M134)
+ End parsing Verilog file c7552_test_set_50.v with 0 errors.
+ End reading 48 patterns, CPU_time = 0.01 sec, Memory = 0MB
+run fault_sim
+ Simulation performed for 6852 faults on circuit size of 1626 gates.
+ --------------------------------------------
+ #patterns     #faults     test      process
+ simulated  detect/active  coverage  CPU time
+ ---------  -------------  --------  --------
+ 32           5252   1600    76.65%      0.00
+ 48            367   1233    82.01%      0.00
+ Fault simulation completed: #patterns=48, CPU time=0.00
+report summaries
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       5619
+ Possibly detected                PT          0
+ Undetectable                     UD          0
+ ATPG untestable                  AU          0
+ Not detected                     ND       1233
+ -----------------------------------------------
+ total faults                              6852
+ test coverage                            82.01%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                           0
+ #external patterns (c7552_test_set_50.v)     48
+     #basic_scan patterns                    48
+ -----------------------------------------------
+add faults -all
+ 6852 existing faults were removed from the fault list.
+ 6852 faults were added to fault list.
+set pattern external c7552_test_set_100.v
+ Warning: Current external pattern set is now deleted. (M134)
+ End parsing Verilog file c7552_test_set_100.v with 0 errors.
+ End reading 77 patterns, CPU_time = 0.01 sec, Memory = 0MB
+run fault_sim
+ Simulation performed for 6852 faults on circuit size of 1626 gates.
+ --------------------------------------------
+ #patterns     #faults     test      process
+ simulated  detect/active  coverage  CPU time
+ ---------  -------------  --------  --------
+ 32           5504   1348    80.33%      0.00
+ 64            504    844    87.68%      0.00
+ 77             55    789    88.49%      0.00
+ Fault simulation completed: #patterns=77, CPU time=0.00
+report summaries
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       6063
+ Possibly detected                PT          0
+ Undetectable                     UD          0
+ ATPG untestable                  AU          0
+ Not detected                     ND        789
+ -----------------------------------------------
+ total faults                              6852
+ test coverage                            88.49%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                           0
+ #external patterns (c7552_test_set_100.v)     77
+     #basic_scan patterns                    77
+ -----------------------------------------------
+add faults -all
+ 6852 existing faults were removed from the fault list.
+ 6852 faults were added to fault list.
+set pattern external c7552_test_set_1000.v
+ Warning: Current external pattern set is now deleted. (M134)
+ End parsing Verilog file c7552_test_set_1000.v with 0 errors.
+ End reading 148 patterns, CPU_time = 0.02 sec, Memory = 0MB
+run fault_sim
+ Simulation performed for 6852 faults on circuit size of 1626 gates.
+ --------------------------------------------
+ #patterns     #faults     test      process
+ simulated  detect/active  coverage  CPU time
+ ---------  -------------  --------  --------
+ 32           5529   1323    80.69%      0.00
+ 64            353    970    85.84%      0.00
+ 96            294    676    90.13%      0.00
+ 128           147    529    92.28%      0.00
+ 148            61    468    93.17%      0.00
+ Fault simulation completed: #patterns=148, CPU time=0.00
+report summaries
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       6384
+ Possibly detected                PT          0
+ Undetectable                     UD          0
+ ATPG untestable                  AU          0
+ Not detected                     ND        468
+ -----------------------------------------------
+ total faults                              6852
+ test coverage                            93.17%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                           0
+ #external patterns (c7552_test_set_1000.v)    148
+     #basic_scan patterns                   148
+ -----------------------------------------------
+add faults -all
+ 6852 existing faults were removed from the fault list.
+ 6852 faults were added to fault list.
+set pattern external c7552_test_set_5000.v
+ Warning: Current external pattern set is now deleted. (M134)
+ End parsing Verilog file c7552_test_set_5000.v with 0 errors.
+ End reading 181 patterns, CPU_time = 0.02 sec, Memory = 0MB
+run fault_sim
+ Simulation performed for 6852 faults on circuit size of 1626 gates.
+ --------------------------------------------
+ #patterns     #faults     test      process
+ simulated  detect/active  coverage  CPU time
+ ---------  -------------  --------  --------
+ 32           5510   1342    80.41%      0.00
+ 64            485    857    87.49%      0.00
+ 96            194    663    90.32%      0.00
+ 128           111    552    91.94%      0.00
+ 160           141    411    94.00%      0.00
+ 181            75    336    95.10%      0.00
+ Fault simulation completed: #patterns=181, CPU time=0.00
+report summaries
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       6516
+ Possibly detected                PT          0
+ Undetectable                     UD          0
+ ATPG untestable                  AU          0
+ Not detected                     ND        336
+ -----------------------------------------------
+ total faults                              6852
+ test coverage                            95.10%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                           0
+ #external patterns (c7552_test_set_5000.v)    181
+     #basic_scan patterns                   181
+ -----------------------------------------------
+add faults -all
+ 6852 existing faults were removed from the fault list.
+ 6852 faults were added to fault list.
+set pattern external c7552_test_set_10000.v
+ Warning: Current external pattern set is now deleted. (M134)
+ End parsing Verilog file c7552_test_set_10000.v with 0 errors.
+ End reading 175 patterns, CPU_time = 0.02 sec, Memory = 0MB
+run fault_sim
+ Simulation performed for 6852 faults on circuit size of 1626 gates.
+ --------------------------------------------
+ #patterns     #faults     test      process
+ simulated  detect/active  coverage  CPU time
+ ---------  -------------  --------  --------
+ 32           5499   1353    80.25%      0.00
+ 64            460    893    86.97%      0.00
+ 96            259    634    90.75%      0.00
+ 128           106    528    92.29%      0.00
+ 160           145    383    94.41%      0.00
+ 175            59    324    95.27%      0.00
+ Fault simulation completed: #patterns=175, CPU time=0.00
+report summaries
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       6528
+ Possibly detected                PT          0
+ Undetectable                     UD          0
+ ATPG untestable                  AU          0
+ Not detected                     ND        324
+ -----------------------------------------------
+ total faults                              6852
+ test coverage                            95.27%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                           0
+ #external patterns (c7552_test_set_10000.v)    175
+     #basic_scan patterns                   175
+ -----------------------------------------------
+add faults -all
+ 6852 existing faults were removed from the fault list.
+ 6852 faults were added to fault list.
+set pattern external c7552_test_set_100000.v
+ Warning: Current external pattern set is now deleted. (M134)
+ End parsing Verilog file c7552_test_set_100000.v with 0 errors.
+ End reading 208 patterns, CPU_time = 0.03 sec, Memory = 0MB
+run fault_sim
+ Simulation performed for 6852 faults on circuit size of 1626 gates.
+ --------------------------------------------
+ #patterns     #faults     test      process
+ simulated  detect/active  coverage  CPU time
+ ---------  -------------  --------  --------
+ 32           5315   1537    77.57%      0.00
+ 64            628    909    86.73%      0.00
+ 96            321    588    91.42%      0.00
+ 128           111    477    93.04%      0.00
+ 160           124    353    94.85%      0.00
+ 192           136    217    96.83%      0.00
+ 208            77    140    97.96%      0.00
+ Fault simulation completed: #patterns=208, CPU time=0.00
+report summaries
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       6712
+ Possibly detected                PT          0
+ Undetectable                     UD          0
+ ATPG untestable                  AU          0
+ Not detected                     ND        140
+ -----------------------------------------------
+ total faults                              6852
+ test coverage                            97.96%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                           0
+ #external patterns (c7552_test_set_100000.v)    208
+     #basic_scan patterns                   208
+ -----------------------------------------------
+add faults -all
+ 6852 existing faults were removed from the fault list.
+ 6852 faults were added to fault list.
+set pattern external c7552_test_set_1000000.v
+ Warning: Current external pattern set is now deleted. (M134)
+ End parsing Verilog file c7552_test_set_1000000.v with 0 errors.
+ End reading 241 patterns, CPU_time = 0.03 sec, Memory = 0MB
+run fault_sim
+ Simulation performed for 6852 faults on circuit size of 1626 gates.
+ --------------------------------------------
+ #patterns     #faults     test      process
+ simulated  detect/active  coverage  CPU time
+ ---------  -------------  --------  --------
+ 32           5526   1326    80.65%      0.00
+ 64            426    900    86.87%      0.00
+ 96            219    681    90.06%      0.00
+ 128           132    549    91.99%      0.00
+ 160           137    412    93.99%      0.00
+ 192           150    262    96.18%      0.00
+ 224           124    138    97.99%      0.00
+ 241            53     85    98.76%      0.00
+ Fault simulation completed: #patterns=241, CPU time=0.00
+report summaries
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       6767
+ Possibly detected                PT          0
+ Undetectable                     UD          0
+ ATPG untestable                  AU          0
+ Not detected                     ND         85
+ -----------------------------------------------
+ total faults                              6852
+ test coverage                            98.76%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                           0
+ #external patterns (c7552_test_set_1000000.v)    241
+     #basic_scan patterns                   241
+ -----------------------------------------------
+add faults -all
+ 6852 existing faults were removed from the fault list.
+ 6852 faults were added to fault list.
+set pattern external c7552_test_set_10000000.v
+ Warning: Current external pattern set is now deleted. (M134)
+ End parsing Verilog file c7552_test_set_10000000.v with 0 errors.
+ End reading 259 patterns, CPU_time = 0.03 sec, Memory = 0MB
+run fault_sim
+ Simulation performed for 6852 faults on circuit size of 1626 gates.
+ --------------------------------------------
+ #patterns     #faults     test      process
+ simulated  detect/active  coverage  CPU time
+ ---------  -------------  --------  --------
+ 32           5493   1359    80.17%      0.00
+ 64            435    924    86.51%      0.00
+ 96            211    713    89.59%      0.00
+ 128           146    567    91.73%      0.00
+ 160           134    433    93.68%      0.00
+ 192           154    279    95.93%      0.00
+ 224           121    158    97.69%      0.00
+ 256           102     56    99.18%      0.00
+ 259             6     50    99.27%      0.00
+ Fault simulation completed: #patterns=259, CPU time=0.00
+report summaries
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       6802
+ Possibly detected                PT          0
+ Undetectable                     UD          0
+ ATPG untestable                  AU          0
+ Not detected                     ND         50
+ -----------------------------------------------
+ total faults                              6852
+ test coverage                            99.27%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                           0
+ #external patterns (c7552_test_set_10000000.v)    259
+     #basic_scan patterns                   259
+ -----------------------------------------------
+
+quit

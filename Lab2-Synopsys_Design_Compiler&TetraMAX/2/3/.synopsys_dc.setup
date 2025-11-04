@@ -1,0 +1,45 @@
+# wc(worst condition), bc(best condition), typ (typical)
+set CONDITION wc
+
+set umcInstall      [getenv UMC_LIB   ]
+set SynopsysInstall [getenv SYNOPSYS  ]
+
+define_design_lib WORK -path ./WORK
+
+set sh_enable_line_editing           true
+
+#set syn_enable_ultra  [getenv syn_enable_ultra]
+#set syn_enable_dw     [getenv syn_enable_dw]
+
+set syn_enable_ultra  0
+set syn_enable_dw     0
+
+
+set search_path [list  . \
+        $umcInstall/design_compiler \
+        $SynopsysInstall/libraries/syn ]
+
+set link_library      [list umcl18u250t2_$CONDITION.db]
+set target_library    [list umcl18u250t2_$CONDITION.db]
+set symbol_library    [list umcl18u250t2.sdb ]
+set synthetic_library [list standard.sldb]
+
+
+if { $syn_enable_ultra == 1} {
+	echo " Enabling DC - Ultra Optimisation mode "
+    get_license DC-Ultra-Opt
+    get_license DC-Ultra-Features
+	set fsm_auto_inferring true
+	set compile_seqmap_synchronous_extraction true
+}
+
+
+if { $syn_enable_dw == 1} {
+    echo " Enabling DesignWare Foundation modules "
+    get_license DesignWare-Foundation
+	
+    set synthetic_library dw_foundation.sldb
+	set dw_prefer_mc_inside true
+    set link_library   [concat $link_library   [list dw_foundation.sldb]]
+    set target_library [concat $target_library [list dw_foundation.sldb]]
+}

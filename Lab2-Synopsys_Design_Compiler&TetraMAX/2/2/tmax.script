@@ -1,0 +1,34 @@
+read netlist $UMC_LIB/verilog_simulation_models/*.v
+read netlist c3540_synth.v
+run build_model c3540
+run drc
+
+# deterministic
+add faults -all
+set pattern internal
+run atpg
+write patterns c3540_test_set_determ.v -nocompaction  -replace
+
+# pseudorandom
+reset_state
+add faults -all
+set pattern random
+set random_patterns -length 10000
+run atpg
+write patterns c3540_test_set_10000.v -nocompaction  -replace
+
+reset_state
+add faults -all
+set pattern random
+set random_patterns -length 100000
+run atpg
+write patterns c3540_test_set_100000.v -nocompaction  -replace
+
+reset_state
+add faults -all
+set pattern random
+set random_patterns -length 1000000
+run atpg
+write patterns c3540_test_set_1000000.v -nocompaction  -replace
+
+quit

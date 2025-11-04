@@ -1,0 +1,10 @@
+read netlist $UMC_LIB/verilog_simulation_models/*.v
+read netlist s1423_synth.v
+run build_model s1423
+run drc
+
+add faults -all
+set pattern internal
+run atpg
+write patterns s1423_test_set.v -nocompaction  -replace
+quit

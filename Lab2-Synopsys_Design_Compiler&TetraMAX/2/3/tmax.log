@@ -1,0 +1,254 @@
+WARNING:  file defined by STDMACROS environment variable was not found at:
+          '/home/eda/synopsys/syn/T-2022.03-SP1/auxx/syn/stdmacros.dat'
+
+WARNING:  User's Guide 'tmax_ug.pdf' missing or no read permission. Was expected at:
+          '/home/eda/synopsys/syn/T-2022.03-SP1/doc/test/tmax/tmax_ug.pdf'
+
+                             Synopsys TestMAX (TM) 
+                                  TetraMAX (R)
+
+               Version T-2022.03-SP1 for linux64 - Apr 14, 2022  
+
+                    Copyright (c) 1996 - 2022 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+
+read netlist $UMC_LIB/verilog_simulation_models/*.v
+ Begin reading netlists ( $UMC_LIB/verilog_simulation_models/*.v )...
+ End reading netlists: #files=506, #errors=0, #modules=530, top=NOR4M2D4, #lines=29130, CPU_time=0.07 sec, Memory=10MB
+read netlist c7552_synth.v
+ Begin reading netlist ( c7552_synth.v )...
+ End parsing Verilog file c7552_synth.v with 0 errors.
+ End reading netlist: #modules=1, top=c7552, #lines=1068, CPU_time=0.00 sec, Memory=0MB
+
+run build_model c7552
+ ------------------------------------------------------------------------------
+ Begin build model for topcut = c7552 ...
+ ------------------------------------------------------------------------------
+ There were 103 primitives and 0 faultable pins removed during model optimizations
+ End build model: #primitives=1626, CPU_time=0.00 sec, Memory=1MB
+ ------------------------------------------------------------------------------
+ Begin learning analyses...
+ End learning analyses, total learning CPU time=0.01 sec.
+ ------------------------------------------------------------------------------
+run drc
+ ------------------------------------------------------------------------------
+ Begin scan design rules checking...
+ ------------------------------------------------------------------------------
+ Begin simulating test protocol procedures...
+ Test protocol simulation completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin scan chain operation checking...
+ Scan chain operation checking completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin tracing connection cones...
+ Tracing connection cones completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin nonscan rules checking...
+ Nonscan cell summary: #DFF=0  #DLAT=0  #RAM_outs=0  tla_usage_type=none
+ Nonscan rules checking completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin DRC dependent learning...
+ Fast-sequential depth results: control=0(0), observe=0(0), detect=0(0), CPU time=0.00 sec
+ DRC dependent learning completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin set operation for load unload constant latches...
+ Set operation for load unload constant latches completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ DRC Summary Report
+ ------------------------------------------------------------------------------
+ No violations occurred during DRC process.
+ Design rules checking was successful, total CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+
+set pattern internal
+
+
+add faults -all
+ 6852 faults were added to fault list.
+set atpg -coverage 97.5
+run atpg
+ ATPG performed for stuck fault model using internal pattern source.
+ ----------------------------------------------------------
+ #patterns     #faults     #ATPG faults  test      process
+ stored     detect/active  red/au/abort  coverage  CPU time
+ ---------  -------------  ------------  --------  --------
+ Begin deterministic ATPG: #uncollapsed_faults=6852, abort_limit=10...
+ 32           5647   1205         0/0/0    82.41%      0.00
+ 63            684    521         0/0/0    92.40%      0.01
+ 89            223    298         0/0/0    95.65%      0.01
+ 118           108    190         0/0/0    97.23%      0.01
+ 148           106     84         0/0/0    98.77%      0.01
+ Warning: ATPG terminated due to meeting test coverage limit. (M234)
+ 
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       6768
+ Possibly detected                PT          0
+ Undetectable                     UD          0
+ ATPG untestable                  AU          0
+ Not detected                     ND         84
+ -----------------------------------------------
+ total faults                              6852
+ test coverage                            98.77%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                         148
+     #basic_scan patterns                   148
+ -----------------------------------------------
+write patterns c7552_test_set_97_5.v -nocompaction -replace
+ End writing file 'c7552_test_set_97_5.v' with 148 patterns, File_size = 26656, CPU_time = 0.0 sec.
+
+set atpg -coverage 100
+reset_state
+ Warning: Internal pattern set is now deleted. (M133)
+
+
+add faults -all
+ 6852 existing faults were removed from the fault list.
+ 6852 faults were added to fault list.
+set atpg -patterns 200
+run atpg
+ ATPG performed for stuck fault model using internal pattern source.
+ ----------------------------------------------------------
+ #patterns     #faults     #ATPG faults  test      process
+ stored     detect/active  red/au/abort  coverage  CPU time
+ ---------  -------------  ------------  --------  --------
+ Begin deterministic ATPG: #uncollapsed_faults=6852, abort_limit=10...
+ 32           5267   1585         0/0/0    76.87%      0.00
+ 63            685    900         0/0/0    86.87%      0.01
+ 92            395    505         0/0/0    92.63%      0.01
+ 122           228    277         0/0/0    95.96%      0.01
+ 152           132    145         0/0/0    97.88%      0.01
+ 182            71     74         0/0/0    98.92%      0.02
+ 200            42     32         0/0/0    99.53%      0.02
+ Warning: ATPG terminated due to meeting pattern count limit. (M234)
+ 
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       6820
+ Possibly detected                PT          0
+ Undetectable                     UD          0
+ ATPG untestable                  AU          0
+ Not detected                     ND         32
+ -----------------------------------------------
+ total faults                              6852
+ test coverage                            99.53%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                         200
+     #basic_scan patterns                   200
+ -----------------------------------------------
+write patterns c7552_test_set_200.v -nocompaction -replace
+ End writing file 'c7552_test_set_200.v' with 200 patterns, File_size = 36016, CPU_time = 0.0 sec.
+
+set atpg -patterns 0
+reset_state
+ Warning: Internal pattern set is now deleted. (M133)
+
+
+add faults -all
+ 6852 existing faults were removed from the fault list.
+ 6852 faults were added to fault list.
+set atpg -abort_limit 2
+run atpg
+ ATPG performed for stuck fault model using internal pattern source.
+ ----------------------------------------------------------
+ #patterns     #faults     #ATPG faults  test      process
+ stored     detect/active  red/au/abort  coverage  CPU time
+ ---------  -------------  ------------  --------  --------
+ Begin deterministic ATPG: #uncollapsed_faults=6852, abort_limit=2...
+ 32           5494   1358         0/0/0    80.18%      0.00
+ 63            652    706         0/0/0    89.70%      0.01
+ 93            316    390         0/0/0    94.31%      0.01
+ 120           156    234         0/0/0    96.58%      0.01
+ 151           106    128         0/0/0    98.13%      0.01
+ 182            80     48         0/0/0    99.30%      0.01
+ 213            43      5         0/0/0    99.93%      0.02
+ 218             5      0         0/0/0   100.00%      0.02
+ 
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       6852
+ Possibly detected                PT          0
+ Undetectable                     UD          0
+ ATPG untestable                  AU          0
+ Not detected                     ND          0
+ -----------------------------------------------
+ total faults                              6852
+ test coverage                           100.00%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                         218
+     #basic_scan patterns                   218
+ -----------------------------------------------
+write patterns c7552_test_set_2.v -nocompaction -replace
+ End writing file 'c7552_test_set_2.v' with 218 patterns, File_size = 39256, CPU_time = 0.0 sec.
+
+set atpg -abort_limit 10
+reset_state
+ Warning: Internal pattern set is now deleted. (M133)
+
+
+add faults -all
+ 6852 existing faults were removed from the fault list.
+ 6852 faults were added to fault list.
+run atpg
+ ATPG performed for stuck fault model using internal pattern source.
+ ----------------------------------------------------------
+ #patterns     #faults     #ATPG faults  test      process
+ stored     detect/active  red/au/abort  coverage  CPU time
+ ---------  -------------  ------------  --------  --------
+ Begin deterministic ATPG: #uncollapsed_faults=6852, abort_limit=10...
+ 32           5590   1262         0/0/0    81.58%      0.00
+ 62            586    676         0/0/0    90.13%      0.01
+ 91            289    387         0/0/0    94.35%      0.01
+ 119           180    207         0/0/0    96.98%      0.01
+ 148            91    116         0/0/0    98.31%      0.01
+ 180            87     29         0/0/0    99.58%      0.01
+ 207            29      0         0/0/0   100.00%      0.02
+ 
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       6852
+ Possibly detected                PT          0
+ Undetectable                     UD          0
+ ATPG untestable                  AU          0
+ Not detected                     ND          0
+ -----------------------------------------------
+ total faults                              6852
+ test coverage                           100.00%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                         207
+     #basic_scan patterns                   207
+ -----------------------------------------------
+write patterns c7552_test_set_defaults.v -nocompaction -replace
+ End writing file 'c7552_test_set_defaults.v' with 207 patterns, File_size = 37276, CPU_time = 0.0 sec.
+
+quit

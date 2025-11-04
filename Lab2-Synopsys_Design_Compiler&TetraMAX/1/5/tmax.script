@@ -1,0 +1,43 @@
+read netlist $UMC_LIB/verilog_simulation_models/*.v
+read netlist c7552_synth.v
+run build_model c7552
+run drc
+
+add faults -all
+set pattern external c7552_test_set_10.v
+run fault_sim
+report summaries
+add faults -all
+set pattern external c7552_test_set_50.v
+run fault_sim
+report summaries
+add faults -all
+set pattern external c7552_test_set_100.v
+run fault_sim
+report summaries
+add faults -all
+set pattern external c7552_test_set_1000.v
+run fault_sim
+report summaries
+add faults -all
+set pattern external c7552_test_set_5000.v
+run fault_sim
+report summaries
+add faults -all
+set pattern external c7552_test_set_10000.v
+run fault_sim
+report summaries
+add faults -all
+set pattern external c7552_test_set_100000.v
+run fault_sim
+report summaries
+add faults -all
+set pattern external c7552_test_set_1000000.v
+run fault_sim
+report summaries
+add faults -all
+set pattern external c7552_test_set_10000000.v
+run fault_sim
+report summaries
+
+quit

@@ -1,0 +1,41 @@
+read netlist $UMC_LIB/verilog_simulation_models/*.v
+read netlist c7552_synth.v
+
+run build_model c7552
+run drc
+
+set pattern internal
+
+# custom coverage
+add faults -all
+set atpg -coverage 97.5 
+run atpg
+write patterns c7552_test_set_97_5.v -nocompaction  -replace
+
+set atpg -coverage 100
+reset_state
+
+# max patterns
+add faults -all
+set atpg -patterns 200
+run atpg
+write patterns c7552_test_set_200.v -nocompaction  -replace
+
+set atpg -patterns 0
+reset_state
+
+# max backtracks
+add faults -all
+set atpg -abort_limit 2
+run atpg
+write patterns c7552_test_set_2.v -nocompaction  -replace
+
+set atpg -abort_limit 10
+reset_state
+
+# defaults
+add faults -all
+run atpg
+write patterns c7552_test_set_defaults.v -nocompaction  -replace
+
+quit

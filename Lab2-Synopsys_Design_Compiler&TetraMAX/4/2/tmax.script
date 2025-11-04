@@ -1,0 +1,11 @@
+read netlist s1423_scan_netlist.v
+read netlist $UMC_LIB/verilog_simulation_models/*.v
+run build_model s1423
+set drc s1423.spf
+run drc
+
+add faults -all
+set pattern internal
+run atpg
+write patterns s1423_1chain_myvectors.v  -format stil -nocompaction -serial -type basic_scan -replace
+quit

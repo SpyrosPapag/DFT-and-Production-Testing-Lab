@@ -1,0 +1,150 @@
+WARNING:  file defined by STDMACROS environment variable was not found at:
+          '/home/eda/synopsys/syn/T-2022.03-SP1/auxx/syn/stdmacros.dat'
+
+WARNING:  User's Guide 'tmax_ug.pdf' missing or no read permission. Was expected at:
+          '/home/eda/synopsys/syn/T-2022.03-SP1/doc/test/tmax/tmax_ug.pdf'
+
+                             Synopsys TestMAX (TM) 
+                                  TetraMAX (R)
+
+               Version T-2022.03-SP1 for linux64 - Apr 14, 2022  
+
+                    Copyright (c) 1996 - 2022 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+
+read netlist s5378_scan_netlist.v
+ Begin reading netlist ( s5378_scan_netlist.v )...
+ End parsing Verilog file s5378_scan_netlist.v with 0 errors.
+ End reading netlist: #modules=246, top=s5378, #lines=2763, CPU_time=0.00 sec, Memory=1MB
+read netlist $UMC_LIB/verilog_simulation_models/*.v
+ Begin reading netlists ( $UMC_LIB/verilog_simulation_models/*.v )...
+ End reading netlists: #files=506, #errors=0, #modules=464, top=NOR4M2D4, #lines=29130, CPU_time=0.07 sec, Memory=10MB
+run build_model s5378
+ ------------------------------------------------------------------------------
+ Begin build model for topcut = s5378 ...
+ ------------------------------------------------------------------------------
+ There were 2208 primitives and 0 faultable pins removed during model optimizations
+ Warning: Rule N21 (unsupported UDP entry) was violated 1 times.
+ End build model: #primitives=1497, CPU_time=0.00 sec, Memory=1MB
+ ------------------------------------------------------------------------------
+ Begin learning analyses...
+ End learning analyses, total learning CPU time=0.01 sec.
+ ------------------------------------------------------------------------------
+set drc s5378.spf
+run drc
+ ------------------------------------------------------------------------------
+ Begin scan design rules checking...
+ ------------------------------------------------------------------------------
+ Begin reading test protocol file s5378.spf...
+ End parsing STIL file s5378.spf with 0 errors.
+ Test protocol file reading completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin simulating test protocol procedures...
+ Test protocol simulation completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin scan chain operation checking...
+ Chain 1 successfully traced with 179 scan_cells.
+ Scan chain operation checking completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin clock rules checking...
+ Clock rules checking completed, CPU time=0.00 sec.
+ Performing clock grouping analysis for 1 clock.
+ Clock grouping results: #pairs=0, #groups=0, #serial_pairs=0, #disturbed_pairs=0, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin tracing connection cones...
+ Tracing connection cones completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin nonscan rules checking...
+ Nonscan cell summary: #DFF=0  #DLAT=0  #RAM_outs=0  tla_usage_type=none
+ Nonscan rules checking completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin DRC dependent learning...
+ Fast-sequential depth results: control=0(0), observe=0(0), detect=0(0), CPU time=0.00 sec
+ DRC dependent learning completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin set operation for load unload constant latches...
+ Set operation for load unload constant latches completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ DRC Summary Report
+ ------------------------------------------------------------------------------
+ No violations occurred during DRC process.
+ Design rules checking was successful, total CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+
+add faults -all
+ 6234 faults were added to fault list.
+set pattern internal
+run atpg
+ ATPG performed for stuck fault model using internal pattern source.
+ ----------------------------------------------------------
+ #patterns     #faults     #ATPG faults  test      process
+ stored     detect/active  red/au/abort  coverage  CPU time
+ ---------  -------------  ------------  --------  --------
+ Begin deterministic ATPG: #uncollapsed_faults=4986, abort_limit=10...
+ 30           3418   1568         0/0/0    74.83%      0.00
+ 62            733    835         0/0/0    86.59%      0.00
+ 93            298    537         0/0/0    91.38%      0.00
+ 124           131    406         0/0/0    93.48%      0.01
+ 154           114    292         0/0/0    95.31%      0.01
+ 186           101    191         0/0/0    96.93%      0.01
+ 217            69    122         0/0/0    98.04%      0.01
+ 248            65     57         0/0/0    99.08%      0.01
+ 278            51      6         0/0/0    99.90%      0.01
+ 284             6      0         0/0/0   100.00%      0.01
+ 
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       6229
+ Possibly detected                PT          0
+ Undetectable                     UD          5
+ ATPG untestable                  AU          0
+ Not detected                     ND          0
+ -----------------------------------------------
+ total faults                              6234
+ test coverage                           100.00%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                         284
+     #basic_scan patterns                   284
+ -----------------------------------------------
+write patterns s5378_myvectors.stil -format stil -nocompaction -serial -type basic_scan -replace
+ 284 patterns of possible 284 patterns were selected based on type.
+ Patterns written reference 856 V statements, generating 51586 test cycles
+ End writing file 's5378_myvectors.stil' with 284 patterns, File_size = 182105, CPU_time = 0.0 sec.
+report summaries
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       6229
+ Possibly detected                PT          0
+ Undetectable                     UD          5
+ ATPG untestable                  AU          0
+ Not detected                     ND          0
+ -----------------------------------------------
+ total faults                              6234
+ test coverage                           100.00%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                         284
+     #basic_scan patterns                   284
+ -----------------------------------------------
+quit

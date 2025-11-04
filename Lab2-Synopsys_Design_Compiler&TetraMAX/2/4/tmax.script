@@ -1,0 +1,22 @@
+read netlist $UMC_LIB/verilog_simulation_models/*.v
+read netlist c7552_synth.v
+
+run build_model c7552
+run drc
+
+# fault sim
+set pattern external c7552_test_set.v
+add faults -all
+run fault_sim
+
+report summaries
+write faults c7552_ND_faults.dat -class ND -uncollapsed -replace
+
+# atpg
+remove faults -all
+set pattern internal
+read faults c7552_ND_faults.dat
+run atpg
+write patterns c7552_test_set_for_ND.v -nocompaction  -replace
+
+quit

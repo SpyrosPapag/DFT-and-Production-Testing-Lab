@@ -1,0 +1,511 @@
+STIL 1.0 {
+    Design 2005;
+}
+Header {
+    Title "Minimal STIL for design `s5378'";
+    Date "Sat Jun  7 18:59:23 2025";
+    Source "DFT Compiler T-2022.03-SP1";
+}
+Signals {
+    "CK" In;
+    "n3065gat" In;
+    "n3066gat" In;
+    "n3067gat" In;
+    "n3068gat" In;
+    "n3069gat" In;
+    "n3070gat" In;
+    "n3071gat" In;
+    "n3072gat" In;
+    "n3073gat" In;
+    "n3074gat" In;
+    "n3075gat" In;
+    "n3076gat" In;
+    "n3077gat" In;
+    "n3078gat" In;
+    "n3079gat" In;
+    "n3080gat" In;
+    "n3081gat" In;
+    "n3082gat" In;
+    "n3083gat" In;
+    "n3084gat" In;
+    "n3085gat" In;
+    "n3086gat" In;
+    "n3087gat" In;
+    "n3088gat" In;
+    "n3089gat" In;
+    "n3090gat" In;
+    "n3091gat" In;
+    "n3092gat" In;
+    "n3093gat" In;
+    "n3094gat" In;
+    "n3095gat" In;
+    "n3097gat" In;
+    "n3098gat" In;
+    "n3099gat" In;
+    "n3100gat" In;
+    "n3104gat" Out;
+    "n3105gat" Out;
+    "n3106gat" Out;
+    "n3107gat" Out;
+    "n3108gat" Out;
+    "n3109gat" Out;
+    "n3110gat" Out;
+    "n3111gat" Out;
+    "n3112gat" Out;
+    "n3113gat" Out;
+    "n3114gat" Out;
+    "n3115gat" Out;
+    "n3116gat" Out;
+    "n3117gat" Out;
+    "n3118gat" Out;
+    "n3119gat" Out;
+    "n3120gat" Out;
+    "n3121gat" Out;
+    "n3122gat" Out;
+    "n3123gat" Out;
+    "n3124gat" Out;
+    "n3125gat" Out;
+    "n3126gat" Out;
+    "n3127gat" Out;
+    "n3128gat" Out;
+    "n3129gat" Out;
+    "n3130gat" Out;
+    "n3131gat" Out;
+    "n3132gat" Out;
+    "n3133gat" Out;
+    "n3134gat" Out;
+    "n3135gat" Out;
+    "n3136gat" Out;
+    "n3137gat" Out;
+    "n3138gat" Out;
+    "n3139gat" Out;
+    "n3140gat" Out;
+    "n3141gat" Out;
+    "n3142gat" Out;
+    "n3143gat" Out;
+    "n3144gat" Out;
+    "n3145gat" Out;
+    "n3146gat" Out;
+    "n3147gat" Out;
+    "n3148gat" Out;
+    "n3149gat" Out;
+    "n3150gat" Out;
+    "n3151gat" Out;
+    "n3152gat" Out;
+    "test_si" In;
+    "test_so" Out;
+    "test_se" In;
+}
+SignalGroups {
+    "_si" = '"test_si"' {
+        ScanIn;
+    }
+    "_so" = '"test_so"' {
+        ScanOut;
+    }
+    "_clk" = '"CK"';
+    "all_inputs" = '"CK" + "n3065gat" + "n3066gat" + "n3067gat" + "n3068gat" + 
+    "n3069gat" + "n3070gat" + "n3071gat" + "n3072gat" + "n3073gat" + "n3074gat" 
+    + "n3075gat" + "n3076gat" + "n3077gat" + "n3078gat" + "n3079gat" + 
+    "n3080gat" + "n3081gat" + "n3082gat" + "n3083gat" + "n3084gat" + "n3085gat" 
+    + "n3086gat" + "n3087gat" + "n3088gat" + "n3089gat" + "n3090gat" + 
+    "n3091gat" + "n3092gat" + "n3093gat" + "n3094gat" + "n3095gat" + "n3097gat" 
+    + "n3098gat" + "n3099gat" + "n3100gat" + "test_si" + "test_se"';
+    "all_outputs" = '"n3104gat" + "n3105gat" + "n3106gat" + "n3107gat" + 
+    "n3108gat" + "n3109gat" + "n3110gat" + "n3111gat" + "n3112gat" + "n3113gat" 
+    + "n3114gat" + "n3115gat" + "n3116gat" + "n3117gat" + "n3118gat" + 
+    "n3119gat" + "n3120gat" + "n3121gat" + "n3122gat" + "n3123gat" + "n3124gat" 
+    + "n3125gat" + "n3126gat" + "n3127gat" + "n3128gat" + "n3129gat" + 
+    "n3130gat" + "n3131gat" + "n3132gat" + "n3133gat" + "n3134gat" + "n3135gat" 
+    + "n3136gat" + "n3137gat" + "n3138gat" + "n3139gat" + "n3140gat" + 
+    "n3141gat" + "n3142gat" + "n3143gat" + "n3144gat" + "n3145gat" + "n3146gat" 
+    + "n3147gat" + "n3148gat" + "n3149gat" + "n3150gat" + "n3151gat" + 
+    "n3152gat" + "test_so"';
+    "all_ports" = '"all_inputs" + "all_outputs"';
+    "_pi" = '"CK" + "n3065gat" + "n3066gat" + "n3067gat" + "n3068gat" + 
+    "n3069gat" + "n3070gat" + "n3071gat" + "n3072gat" + "n3073gat" + "n3074gat" 
+    + "n3075gat" + "n3076gat" + "n3077gat" + "n3078gat" + "n3079gat" + 
+    "n3080gat" + "n3081gat" + "n3082gat" + "n3083gat" + "n3084gat" + "n3085gat" 
+    + "n3086gat" + "n3087gat" + "n3088gat" + "n3089gat" + "n3090gat" + 
+    "n3091gat" + "n3092gat" + "n3093gat" + "n3094gat" + "n3095gat" + "n3097gat" 
+    + "n3098gat" + "n3099gat" + "n3100gat" + "test_si" + "test_se"';
+    "_po" = '"n3104gat" + "n3105gat" + "n3106gat" + "n3107gat" + "n3108gat" + 
+    "n3109gat" + "n3110gat" + "n3111gat" + "n3112gat" + "n3113gat" + "n3114gat" 
+    + "n3115gat" + "n3116gat" + "n3117gat" + "n3118gat" + "n3119gat" + 
+    "n3120gat" + "n3121gat" + "n3122gat" + "n3123gat" + "n3124gat" + "n3125gat" 
+    + "n3126gat" + "n3127gat" + "n3128gat" + "n3129gat" + "n3130gat" + 
+    "n3131gat" + "n3132gat" + "n3133gat" + "n3134gat" + "n3135gat" + "n3136gat" 
+    + "n3137gat" + "n3138gat" + "n3139gat" + "n3140gat" + "n3141gat" + 
+    "n3142gat" + "n3143gat" + "n3144gat" + "n3145gat" + "n3146gat" + "n3147gat" 
+    + "n3148gat" + "n3149gat" + "n3150gat" + "n3151gat" + "n3152gat" + "test_so"
+    ';
+}
+ScanStructures {
+    ScanChain "1" {
+        ScanLength 179;
+        ScanIn "test_si";
+        ScanOut "test_so";
+        ScanEnable "test_se";
+        ScanMasterClock "CK";
+    }
+}
+Timing {
+    WaveformTable "_default_WFT_" {
+        Period '100ns';
+        Waveforms {
+            "all_inputs" {
+                0 {
+                    '0ns' D;
+                }
+            }
+            "all_inputs" {
+                1 {
+                    '0ns' U;
+                }
+            }
+            "all_inputs" {
+                Z {
+                    '0ns' Z;
+                }
+            }
+            "all_inputs" {
+                N {
+                    '0ns' N;
+                }
+            }
+            "all_outputs" {
+                X {
+                    '0ns' X;
+                    '40ns' X;
+                }
+            }
+            "all_outputs" {
+                H {
+                    '0ns' X;
+                    '40ns' H;
+                }
+            }
+            "all_outputs" {
+                T {
+                    '0ns' X;
+                    '40ns' T;
+                }
+            }
+            "all_outputs" {
+                L {
+                    '0ns' X;
+                    '40ns' L;
+                }
+            }
+            "CK" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+        }
+    }
+    WaveformTable "_multiclock_capture_WFT_" {
+        Period '100ns';
+        Waveforms {
+            "all_inputs" {
+                0 {
+                    '0ns' D;
+                }
+            }
+            "all_inputs" {
+                1 {
+                    '0ns' U;
+                }
+            }
+            "all_inputs" {
+                Z {
+                    '0ns' Z;
+                }
+            }
+            "all_inputs" {
+                N {
+                    '0ns' N;
+                }
+            }
+            "all_outputs" {
+                X {
+                    '0ns' X;
+                    '40ns' X;
+                }
+            }
+            "all_outputs" {
+                H {
+                    '0ns' X;
+                    '40ns' H;
+                }
+            }
+            "all_outputs" {
+                T {
+                    '0ns' X;
+                    '40ns' T;
+                }
+            }
+            "all_outputs" {
+                L {
+                    '0ns' X;
+                    '40ns' L;
+                }
+            }
+            "CK" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+        }
+    }
+    WaveformTable "_allclock_capture_WFT_" {
+        Period '100ns';
+        Waveforms {
+            "all_inputs" {
+                0 {
+                    '0ns' D;
+                }
+            }
+            "all_inputs" {
+                1 {
+                    '0ns' U;
+                }
+            }
+            "all_inputs" {
+                Z {
+                    '0ns' Z;
+                }
+            }
+            "all_inputs" {
+                N {
+                    '0ns' N;
+                }
+            }
+            "all_outputs" {
+                X {
+                    '0ns' X;
+                    '40ns' X;
+                }
+            }
+            "all_outputs" {
+                H {
+                    '0ns' X;
+                    '40ns' H;
+                }
+            }
+            "all_outputs" {
+                T {
+                    '0ns' X;
+                    '40ns' T;
+                }
+            }
+            "all_outputs" {
+                L {
+                    '0ns' X;
+                    '40ns' L;
+                }
+            }
+            "CK" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+        }
+    }
+    WaveformTable "_allclock_launch_WFT_" {
+        Period '100ns';
+        Waveforms {
+            "all_inputs" {
+                0 {
+                    '0ns' D;
+                }
+            }
+            "all_inputs" {
+                1 {
+                    '0ns' U;
+                }
+            }
+            "all_inputs" {
+                Z {
+                    '0ns' Z;
+                }
+            }
+            "all_inputs" {
+                N {
+                    '0ns' N;
+                }
+            }
+            "all_outputs" {
+                X {
+                    '0ns' X;
+                    '40ns' X;
+                }
+            }
+            "all_outputs" {
+                H {
+                    '0ns' X;
+                    '40ns' H;
+                }
+            }
+            "all_outputs" {
+                T {
+                    '0ns' X;
+                    '40ns' T;
+                }
+            }
+            "all_outputs" {
+                L {
+                    '0ns' X;
+                    '40ns' L;
+                }
+            }
+            "CK" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+        }
+    }
+    WaveformTable "_allclock_launch_capture_WFT_" {
+        Period '100ns';
+        Waveforms {
+            "all_inputs" {
+                0 {
+                    '0ns' D;
+                }
+            }
+            "all_inputs" {
+                1 {
+                    '0ns' U;
+                }
+            }
+            "all_inputs" {
+                Z {
+                    '0ns' Z;
+                }
+            }
+            "all_inputs" {
+                N {
+                    '0ns' N;
+                }
+            }
+            "all_outputs" {
+                X {
+                    '0ns' X;
+                    '40ns' X;
+                }
+            }
+            "all_outputs" {
+                H {
+                    '0ns' X;
+                    '40ns' H;
+                }
+            }
+            "all_outputs" {
+                T {
+                    '0ns' X;
+                    '40ns' T;
+                }
+            }
+            "all_outputs" {
+                L {
+                    '0ns' X;
+                    '40ns' L;
+                }
+            }
+            "CK" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+        }
+    }
+}
+Procedures {
+    "multiclock_capture" {
+        W "_multiclock_capture_WFT_";
+        C {
+            "all_inputs" = 0 \r37 N;
+            "all_outputs" = \r50 X;
+        }
+        V {
+            "_pi" = \r38 #;
+            "_po" = \r50 #;
+        }
+    }
+    "allclock_capture" {
+        W "_allclock_capture_WFT_";
+        C {
+            "all_inputs" = 0 \r37 N;
+            "all_outputs" = \r50 X;
+        }
+        V {
+            "_pi" = \r38 #;
+            "_po" = \r50 #;
+        }
+    }
+    "allclock_launch" {
+        W "_allclock_launch_WFT_";
+        C {
+            "all_inputs" = 0 \r37 N;
+            "all_outputs" = \r50 X;
+        }
+        V {
+            "_pi" = \r38 #;
+            "_po" = \r50 #;
+        }
+    }
+    "allclock_launch_capture" {
+        W "_allclock_launch_capture_WFT_";
+        C {
+            "all_inputs" = 0 \r37 N;
+            "all_outputs" = \r50 X;
+        }
+        V {
+            "_pi" = \r38 #;
+            "_po" = \r50 #;
+        }
+    }
+    "load_unload" {
+        W "_default_WFT_";
+        C {
+            "all_inputs" = 0 \r37 N;
+            "all_outputs" = \r50 X;
+        }
+        "Internal_scan_pre_shift" : V {
+            "test_se" = 1;
+        }
+        Shift {
+            V {
+                "_clk" = P;
+                "_si" = #;
+                "_so" = #;
+            }
+        }
+    }
+}
+MacroDefs {
+    "test_setup" {
+        W "_default_WFT_";
+        C {
+            "all_inputs" = \r38 N;
+            "all_outputs" = \r50 X;
+        }
+        V {
+            "CK" = 0;
+        }
+        V {
+        }
+    }
+}
+

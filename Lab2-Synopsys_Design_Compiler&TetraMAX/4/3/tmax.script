@@ -1,0 +1,24 @@
+read netlist s1423_scan_netlist.v
+read netlist $UMC_LIB/verilog_simulation_models/*.v
+run build_model s1423
+set drc s1423.spf
+run drc
+
+# fault sim
+set pattern external s1423_test_set.v
+set simulation -basic_scan
+reset state
+add faults -all
+run fault_sim
+report summaries
+write faults not_detected_faults.dat -class PT ND -uncollapsed -replace
+
+# atpg
+reset state
+remove faults -all
+read faults not_detected_faults.dat
+set pattern internal
+run atpg
+write patterns s1423_2chains_myvectors.v -format stil -nocompaction -serial -type basic_scan -replace
+report summaries
+quit

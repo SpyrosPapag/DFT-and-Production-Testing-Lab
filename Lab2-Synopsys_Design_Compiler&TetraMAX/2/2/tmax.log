@@ -1,0 +1,392 @@
+WARNING:  file defined by STDMACROS environment variable was not found at:
+          '/home/eda/synopsys/syn/T-2022.03-SP1/auxx/syn/stdmacros.dat'
+
+WARNING:  User's Guide 'tmax_ug.pdf' missing or no read permission. Was expected at:
+          '/home/eda/synopsys/syn/T-2022.03-SP1/doc/test/tmax/tmax_ug.pdf'
+
+                             Synopsys TestMAX (TM) 
+                                  TetraMAX (R)
+
+               Version T-2022.03-SP1 for linux64 - Apr 14, 2022  
+
+                    Copyright (c) 1996 - 2022 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+
+read netlist $UMC_LIB/verilog_simulation_models/*.v
+ Begin reading netlists ( $UMC_LIB/verilog_simulation_models/*.v )...
+ End reading netlists: #files=506, #errors=0, #modules=530, top=NOR4M2D4, #lines=29130, CPU_time=0.07 sec, Memory=10MB
+read netlist c3540_synth.v
+ Begin reading netlist ( c3540_synth.v )...
+ End parsing Verilog file c3540_synth.v with 0 errors.
+ End reading netlist: #modules=1, top=c3540, #lines=645, CPU_time=0.00 sec, Memory=0MB
+run build_model c3540
+ ------------------------------------------------------------------------------
+ Begin build model for topcut = c3540 ...
+ ------------------------------------------------------------------------------
+ There were 43 primitives and 0 faultable pins removed during model optimizations
+ End build model: #primitives=959, CPU_time=0.00 sec, Memory=1MB
+ ------------------------------------------------------------------------------
+ Begin learning analyses...
+ End learning analyses, total learning CPU time=0.01 sec.
+ ------------------------------------------------------------------------------
+run drc
+ ------------------------------------------------------------------------------
+ Begin scan design rules checking...
+ ------------------------------------------------------------------------------
+ Begin simulating test protocol procedures...
+ Test protocol simulation completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin scan chain operation checking...
+ Scan chain operation checking completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin tracing connection cones...
+ Tracing connection cones completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin nonscan rules checking...
+ Nonscan cell summary: #DFF=0  #DLAT=0  #RAM_outs=0  tla_usage_type=none
+ Nonscan rules checking completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin DRC dependent learning...
+ Fast-sequential depth results: control=0(0), observe=0(0), detect=0(0), CPU time=0.00 sec
+ DRC dependent learning completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin set operation for load unload constant latches...
+ Set operation for load unload constant latches completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ DRC Summary Report
+ ------------------------------------------------------------------------------
+ No violations occurred during DRC process.
+ Design rules checking was successful, total CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+
+
+add faults -all
+ 4170 faults were added to fault list.
+set pattern internal
+run atpg
+ ATPG performed for stuck fault model using internal pattern source.
+ ----------------------------------------------------------
+ #patterns     #faults     #ATPG faults  test      process
+ stored     detect/active  red/au/abort  coverage  CPU time
+ ---------  -------------  ------------  --------  --------
+ Begin deterministic ATPG: #uncollapsed_faults=4170, abort_limit=10...
+ 32           3175    995         0/0/0    76.14%      0.00
+ 63            562    432         1/0/0    89.64%      0.01
+ 90            197    235         1/0/0    94.36%      0.01
+ 121           140     95         1/0/0    97.72%      0.01
+ 146            47     48         1/0/0    98.85%      0.01
+ 174            43      5         1/0/0    99.88%      0.02
+ 176             5      0         1/0/0   100.00%      0.02
+ 
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       4169
+ Possibly detected                PT          0
+ Undetectable                     UD          1
+ ATPG untestable                  AU          0
+ Not detected                     ND          0
+ -----------------------------------------------
+ total faults                              4170
+ test coverage                           100.00%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                         176
+     #basic_scan patterns                   176
+ -----------------------------------------------
+write patterns c3540_test_set_determ.v -nocompaction -replace
+ End writing file 'c3540_test_set_determ.v' with 176 patterns, File_size = 21840, CPU_time = 0.0 sec.
+
+
+reset_state
+ Warning: Internal pattern set is now deleted. (M133)
+add faults -all
+ 4170 existing faults were removed from the fault list.
+ 4170 faults were added to fault list.
+set pattern random
+set random_patterns -length 10000
+run atpg
+ ATPG performed for stuck fault model using random pattern source.
+ Simulation performed for 4170 faults on circuit size of 959 gates.
+ pattern source = 10000 random patterns, capture clock = none
+ --------------------------------------------
+ #patterns     #faults     test      process
+ stored     detect/active  coverage  CPU time
+ ---------  -------------  --------  --------
+ 32           2751   1419    65.97%      0.00
+ 59            639    780    81.29%      0.00
+ 77            142    638    84.70%      0.00
+ 96            144    494    88.15%      0.00
+ 114           101    393    90.58%      0.00
+ 121            36    357    91.44%      0.00
+ 128            20    337    91.92%      0.00
+ 136            59    278    93.33%      0.00
+ 141            26    252    93.96%      0.00
+ 143             5    247    94.08%      0.00
+ 148            20    227    94.56%      0.00
+ 152             5    222    94.68%      0.00
+ 155             3    219    94.75%      0.00
+ 156             3    216    94.82%      0.00
+ 164            18    198    95.25%      0.00
+ 166             3    195    95.32%      0.00
+ 168             3    192    95.40%      0.00
+ 169             4    188    95.49%      0.00
+ 172            25    163    96.09%      0.00
+ 176            17    146    96.50%      0.00
+ 178            13    133    96.81%      0.00
+ 183            25    108    97.41%      0.00
+ 184             1    107    97.43%      0.00
+ 186             5    102    97.55%      0.00
+ 187            13     89    97.87%      0.00
+ 191            16     73    98.25%      0.00
+ 192             1     72    98.27%      0.00
+ 193             6     66    98.42%      0.00
+ 194             4     62    98.51%      0.00
+ 196             3     59    98.59%      0.00
+ 198             7     52    98.75%      0.00
+ 200             5     47    98.87%      0.00
+ 202             4     43    98.97%      0.00
+ 203             2     41    99.02%      0.00
+ 204             1     40    99.04%      0.00
+ 205             2     38    99.09%      0.00
+ 206             4     34    99.18%      0.00
+ 208            10     24    99.42%      0.00
+ 209             3     21    99.50%      0.00
+ 210             1     20    99.52%      0.00
+ 211             3     17    99.59%      0.00
+ 212             1     16    99.62%      0.01
+ 213             1     15    99.64%      0.01
+ 214             2     13    99.69%      0.01
+ 215             2     11    99.74%      0.01
+ 216             1     10    99.76%      0.01
+ 217             1      9    99.78%      0.01
+ 218             1      8    99.81%      0.01
+ 220             2      6    99.86%      0.01
+ 221             1      5    99.88%      0.01
+ 222             1      4    99.90%      0.01
+ 223             1      3    99.93%      0.01
+ 224             1      2    99.95%      0.01
+ Fault simulation completed: #patterns=10000, CPU time=0.01
+ 
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       4168
+ Possibly detected                PT          0
+ Undetectable                     UD          0
+ ATPG untestable                  AU          0
+ Not detected                     ND          2
+ -----------------------------------------------
+ total faults                              4170
+ test coverage                            99.95%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                         224
+     #basic_scan patterns                   224
+ -----------------------------------------------
+write patterns c3540_test_set_10000.v -nocompaction -replace
+ End writing file 'c3540_test_set_10000.v' with 224 patterns, File_size = 27792, CPU_time = 0.0 sec.
+
+reset_state
+ Warning: Internal pattern set is now deleted. (M133)
+add faults -all
+ 4170 existing faults were removed from the fault list.
+ 4170 faults were added to fault list.
+set pattern random
+set random_patterns -length 100000
+run atpg
+ ATPG performed for stuck fault model using random pattern source.
+ Simulation performed for 4170 faults on circuit size of 959 gates.
+ pattern source = 100000 random patterns, capture clock = none
+ --------------------------------------------
+ #patterns     #faults     test      process
+ stored     detect/active  coverage  CPU time
+ ---------  -------------  --------  --------
+ 29           2755   1415    66.07%      0.00
+ 53            429    986    76.35%      0.00
+ 72            269    717    82.81%      0.00
+ 83             82    635    84.77%      0.00
+ 92             56    579    86.12%      0.00
+ 103           111    468    88.78%      0.00
+ 111            75    393    90.58%      0.00
+ 117            28    365    91.25%      0.00
+ 127            76    289    93.07%      0.00
+ 129             2    287    93.12%      0.00
+ 133            11    276    93.38%      0.00
+ 135            26    250    94.00%      0.00
+ 136            12    238    94.29%      0.00
+ 139            29    209    94.99%      0.00
+ 141            10    199    95.23%      0.00
+ 143            17    182    95.64%      0.00
+ 146             3    179    95.71%      0.00
+ 147             3    176    95.78%      0.00
+ 150             5    171    95.90%      0.00
+ 152             7    164    96.07%      0.00
+ 155            16    148    96.45%      0.00
+ 157             2    146    96.50%      0.00
+ 158            17    129    96.91%      0.00
+ 160            11    118    97.17%      0.00
+ 163            22     96    97.70%      0.00
+ 166             5     91    97.82%      0.00
+ 167             2     89    97.87%      0.00
+ 168             2     87    97.91%      0.00
+ 169             3     84    97.99%      0.00
+ 171            15     69    98.35%      0.00
+ 173             3     66    98.42%      0.00
+ 174             7     59    98.59%      0.00
+ 176             4     55    98.68%      0.00
+ 177             4     51    98.78%      0.00
+ 178             2     49    98.82%      0.00
+ 180             8     41    99.02%      0.00
+ 181             1     40    99.04%      0.00
+ 182             2     38    99.09%      0.00
+ 183             1     37    99.11%      0.00
+ 185             4     33    99.21%      0.00
+ 186             1     32    99.23%      0.01
+ 187             2     30    99.28%      0.01
+ 188             2     28    99.33%      0.01
+ 189             9     19    99.54%      0.01
+ 190             2     17    99.59%      0.01
+ 191             1     16    99.62%      0.01
+ 192             2     14    99.66%      0.01
+ 193             1     13    99.69%      0.01
+ 195             4      9    99.78%      0.01
+ 196             1      8    99.81%      0.01
+ 197             2      6    99.86%      0.01
+ 198             1      5    99.88%      0.01
+ 199             1      4    99.90%      0.01
+ 200             1      3    99.93%      0.01
+ 201             1      2    99.95%      0.01
+ 202             1      1    99.98%      0.01
+ Fault simulation completed: #patterns=100000, CPU time=0.10
+ 
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       4169
+ Possibly detected                PT          0
+ Undetectable                     UD          0
+ ATPG untestable                  AU          0
+ Not detected                     ND          1
+ -----------------------------------------------
+ total faults                              4170
+ test coverage                            99.98%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                         202
+     #basic_scan patterns                   202
+ -----------------------------------------------
+write patterns c3540_test_set_100000.v -nocompaction -replace
+ End writing file 'c3540_test_set_100000.v' with 202 patterns, File_size = 25064, CPU_time = 0.0 sec.
+
+reset_state
+ Warning: Internal pattern set is now deleted. (M133)
+add faults -all
+ 4170 existing faults were removed from the fault list.
+ 4170 faults were added to fault list.
+set pattern random
+set random_patterns -length 1000000
+run atpg
+ ATPG performed for stuck fault model using random pattern source.
+ Simulation performed for 4170 faults on circuit size of 959 gates.
+ pattern source = 1000000 random patterns, capture clock = none
+ --------------------------------------------
+ #patterns     #faults     test      process
+ stored     detect/active  coverage  CPU time
+ ---------  -------------  --------  --------
+ 32           3051   1119    73.17%      0.00
+ 57            408    711    82.95%      0.00
+ 71             95    616    85.23%      0.00
+ 83            114    502    87.96%      0.00
+ 99             80    422    89.88%      0.00
+ 110            56    366    91.22%      0.00
+ 116            16    350    91.61%      0.00
+ 124            36    314    92.47%      0.00
+ 131            27    287    93.12%      0.00
+ 135            18    269    93.55%      0.00
+ 140            14    255    93.88%      0.00
+ 145            45    210    94.96%      0.00
+ 149            15    195    95.32%      0.00
+ 150             1    194    95.35%      0.00
+ 153            24    170    95.92%      0.00
+ 157            20    150    96.40%      0.00
+ 159            14    136    96.74%      0.00
+ 161             5    131    96.86%      0.00
+ 162            11    120    97.12%      0.00
+ 164             7    113    97.29%      0.00
+ 166            23     90    97.84%      0.00
+ 168             4     86    97.94%      0.00
+ 171             8     78    98.13%      0.00
+ 172             2     76    98.18%      0.00
+ 177            12     64    98.47%      0.00
+ 179             9     55    98.68%      0.00
+ 182             5     50    98.80%      0.00
+ 183             2     48    98.85%      0.00
+ 185             5     43    98.97%      0.00
+ 186             2     41    99.02%      0.00
+ 188             6     35    99.16%      0.00
+ 189             1     34    99.18%      0.00
+ 190             2     32    99.23%      0.00
+ 191             4     28    99.33%      0.00
+ 192             1     27    99.35%      0.00
+ 193             1     26    99.38%      0.00
+ 194             1     25    99.40%      0.00
+ 195             1     24    99.42%      0.00
+ 196             1     23    99.45%      0.00
+ 197             1     22    99.47%      0.01
+ 198             1     21    99.50%      0.01
+ 199             2     19    99.54%      0.01
+ 200             2     17    99.59%      0.01
+ 201             1     16    99.62%      0.01
+ 202             1     15    99.64%      0.01
+ 203             7      8    99.81%      0.01
+ 204             1      7    99.83%      0.01
+ 205             1      6    99.86%      0.01
+ 206             2      4    99.90%      0.01
+ 207             1      3    99.93%      0.01
+ 208             1      2    99.95%      0.01
+ 209             1      1    99.98%      0.01
+ Fault simulation completed: #patterns=1000000, CPU time=0.95
+ 
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       4169
+ Possibly detected                PT          0
+ Undetectable                     UD          0
+ ATPG untestable                  AU          0
+ Not detected                     ND          1
+ -----------------------------------------------
+ total faults                              4170
+ test coverage                            99.98%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                         209
+     #basic_scan patterns                   209
+ -----------------------------------------------
+write patterns c3540_test_set_1000000.v -nocompaction -replace
+ End writing file 'c3540_test_set_1000000.v' with 209 patterns, File_size = 25932, CPU_time = 0.0 sec.
+
+quit

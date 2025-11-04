@@ -1,0 +1,418 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version T-2022.03-SP1 for linux64 - Apr 14, 2022 
+
+                    Copyright (c) 1988 - 2022 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+set mydesign s1423
+s1423
+remove_design -all
+1
+analyze -f verilog ${mydesign}.v
+Running PRESTO HDLC
+Compiling source file ./s1423.v
+Presto compilation completed successfully.
+Loading db file '/home/eda/libraries/UMCL18U250D2_2.4/design_compiler/umcl18u250t2_wc.db'
+1
+elaborate $mydesign
+Loading db file '/home/eda/synopsys/syn/T-2022.03-SP1/libraries/syn/gtech.db'
+Loading db file '/home/eda/synopsys/syn/T-2022.03-SP1/libraries/syn/standard.sldb'
+Warning: The library named umcl18u250t2_wc specifies a very small trip-point value (0). (TIM-163)
+Warning: The library named umcl18u250t2_wc specifies a very small trip-point value (0). (TIM-163)
+  Loading link library 'umcl18u250t2_wc'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully. (s1423)
+Elaborated 1 design.
+Current design is now 's1423'.
+Information: Building the design 'dff'. (HDL-193)
+
+Inferred memory devices in process
+	in routine dff line 804 in file
+		'./s1423.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|        Q_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (dff)
+1
+current_design $mydesign
+Current design is 's1423'.
+{s1423}
+create_clock -period 8  -name clk
+Warning: Creating virtual clock named 'clk' with no sources. (UID-348)
+1
+set_clock_latency    2  clk
+1
+set_input_delay      2 -clock clk [remove_from_collection [all_inputs] clk]
+Warning: Nothing implicitly matched 'clk' (SEL-003)
+1
+set_output_delay     2 -clock clk [all_outputs]
+1
+set_driving_cell -library umcl18u250t2_wc -lib_cell INVD1 [remove_from_collection [all_inputs] clk]
+Warning: Nothing implicitly matched 'clk' (SEL-003)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+1
+set_load 0.1 [all_outputs]
+1
+set_max_fanout 8 [all_inputs]
+1
+set_fanout_load 8 [all_outputs]
+1
+set_max_area 0
+1
+compile
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | T-2022.03-DWBB_202203.1 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler                                                                   |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 859                                    |
+| Number of User Hierarchies                              | 74                                     |
+| Sequential Cell Count                                   | 74                                     |
+| Macro Count                                             | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 2                                      |
+| Number of VT Class                                      | 0                                      |
+| Number of Clocks                                        | 1                                      |
+| Number of Dont Touch Cells                              | 0                                      |
+| Number of Dont Touch Nets                               | 0                                      |
+| Number of Size Only Cells                               | 0                                      |
+| Design with UPF Data                                    | false                                  |
+====================================================================================================
+
+Information: There are 2 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'dff_0'
+  Processing 's1423'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02   15302.5      0.00       0.0       5.0                          
+    0:00:02   15302.5      0.00       0.0       5.0                          
+    0:00:02   15302.5      0.00       0.0       5.0                          
+    0:00:02   15302.5      0.00       0.0       5.0                          
+    0:00:02   15302.5      0.00       0.0       5.0                          
+    0:00:02   10944.1      0.06       0.1       5.0                          
+    0:00:02   10972.6      0.00       0.0       5.0                          
+    0:00:02   10964.4      0.00       0.0       5.0                          
+    0:00:02   10964.4      0.00       0.0       5.0                          
+    0:00:02   10964.4      0.00       0.0       5.0                          
+    0:00:02   10964.4      0.00       0.0       5.0                          
+    0:00:02   10964.4      0.00       0.0       5.0                          
+    0:00:02   10964.4      0.00       0.0       5.0                          
+    0:00:02   10964.4      0.00       0.0       5.0                          
+    0:00:02   10964.4      0.00       0.0       5.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02   10964.4      0.00       0.0       5.0                          
+    0:00:02   10964.4      0.00       0.0       5.0                          
+    0:00:02   10964.4      0.00       0.0       5.0                          
+
+
+  Beginning Design Rule Fixing  (max_fanout)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02   10964.4      0.00       0.0       5.0                          
+    0:00:02   10980.7      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (max_area 0)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02   10980.7      0.00       0.0       0.0                          
+    0:00:02   10980.7      0.00       0.0       0.0                          
+    0:00:02   10936.0      0.00       0.0       0.0                          
+    0:00:02   10919.7      0.00       0.0       0.0                          
+    0:00:02   10911.6      0.00       0.0       0.0                          
+    0:00:02   10903.4      0.00       0.0       0.0                          
+    0:00:02   10895.3      0.00       0.0       0.0                          
+    0:00:02   10895.3      0.00       0.0       0.0                          
+    0:00:02   10895.3      0.00       0.0       0.0                          
+    0:00:02   10789.6      0.20       0.2       0.0                          
+    0:00:02   10757.1      0.16       0.2       0.0                          
+    0:00:02   10757.1      0.16       0.2       0.0                          
+    0:00:02   10757.1      0.16       0.2       0.0                          
+    0:00:02   10757.1      0.16       0.2       0.0                          
+    0:00:02   10757.1      0.16       0.2       0.0                          
+    0:00:02   10757.1      0.16       0.2       0.0                          
+    0:00:02   10765.2      0.00       0.0       0.0                          
+    0:00:02   10732.7      0.04       0.0       0.0                          
+    0:00:02   10732.7      0.04       0.0       0.0                          
+    0:00:02   10732.7      0.04       0.0       0.0                          
+    0:00:02   10732.7      0.04       0.0       0.0                          
+    0:00:02   10732.7      0.04       0.0       0.0                          
+    0:00:02   10732.7      0.04       0.0       0.0                          
+    0:00:02   10769.3      0.00       0.0       0.0                          
+Loading db file '/home/eda/libraries/UMCL18U250D2_2.4/design_compiler/umcl18u250t2_wc.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+check_design
+ 
+****************************************
+check_design summary:
+Version:     T-2022.03-SP1
+Date:        Mon Jun  2 19:18:53 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      2
+    Unconnected ports (LINT-28)                                     2
+--------------------------------------------------------------------------------
+
+Warning: In design 's1423', port 'GND' is not connected to any nets. (LINT-28)
+Warning: In design 's1423', port 'VDD' is not connected to any nets. (LINT-28)
+1
+report_constraint -all_violators
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : s1423
+Version: T-2022.03-SP1
+Date   : Mon Jun  2 19:18:53 2025
+****************************************
+
+
+   max_area
+
+                             Required        Actual
+   Design                      Area           Area           Slack
+   -----------------------------------------------------------------
+   s1423                        0.00       10769.29       -10769.29 (VIOLATED)
+
+
+1
+write -format verilog -hierarchy -output ${mydesign}_synth.v
+Writing verilog file '/home/students/.../1/s1423_synth.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+1
+write_sdf ${mydesign}_synth.sdf
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/students/.../1/s1423_synth.sdf'. (WT-3)
+1
+write_sdc  ${mydesign}.sdc
+1
+report_area
+ 
+****************************************
+Report : area
+Design : s1423
+Version: T-2022.03-SP1
+Date   : Mon Jun  2 19:18:53 2025
+****************************************
+
+Library(s) Used:
+
+    umcl18u250t2_wc (File: /home/eda/libraries/UMCL18U250D2_2.4/design_compiler/umcl18u250t2_wc.db)
+
+Number of ports:                          247
+Number of nets:                           653
+Number of cells:                          487
+Number of combinational cells:            339
+Number of sequential cells:                74
+Number of macros/black boxes:               0
+Number of buf/inv:                         99
+Number of references:                     124
+
+Combinational area:               5655.149932
+Buf/Inv area:                      821.150010
+Noncombinational area:            5114.140045
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                 10769.289977
+Total area:                 undefined
+1
+report_timing
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : s1423
+Version: T-2022.03-SP1
+Date   : Mon Jun  2 19:18:53 2025
+****************************************
+
+Operating Conditions: nom_pvt   Library: umcl18u250t2_wc
+Wire Load Model Mode: top
+
+  Startpoint: G8 (input port clocked by clk)
+  Endpoint: G702 (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              2.00       2.00
+  input external delay                     2.00       4.00 r
+  G8 (in)                                  0.02       4.02 r
+  U299/Z (INVD1)                           0.07       4.09 f
+  U318/Z (NAN2D1)                          0.08       4.17 r
+  U317/Z (NAN3D1)                          0.16       4.33 f
+  U297/Z (NAN3D2)                          0.14       4.47 r
+  U310/Z (OAI22D1)                         0.11       4.58 f
+  U309/Z (EXNOR2D1)                        0.29       4.88 r
+  U496/Z (AND3D1)                          0.19       5.07 r
+  U529/Z (OAI31D1)                         0.09       5.17 f
+  U530/Z (OAI22D1)                         0.19       5.35 r
+  U296/Z (NAN3D2)                          0.13       5.48 f
+  U311/Z (INVD1)                           0.09       5.57 r
+  U313/Z (NAN2M1D1)                        0.06       5.64 f
+  U312/Z (NAN2D1)                          0.10       5.74 r
+  U314/Z (NAN4D1)                          0.19       5.93 f
+  U321/Z (INVD1)                           0.12       6.05 r
+  U315/Z (NAN2D1)                          0.10       6.15 f
+  U298/Z (INVD2)                           0.08       6.22 r
+  U511/Z (NAN3D2)                          0.11       6.34 f
+  U501/Z (NAN2D2)                          0.11       6.45 r
+  U510/Z (NAN2D2)                          0.07       6.52 f
+  U537/Z (OAI31D1)                         0.18       6.70 r
+  U525/Z (NAN4D1)                          0.20       6.90 f
+  U305/Z (MUXB2D1)                         0.24       7.14 r
+  U295/Z (NAN3D2)                          0.12       7.26 f
+  U316/Z (NAN2D1)                          0.15       7.41 r
+  U518/Z (NAN3D2)                          0.14       7.55 f
+  U329/Z (INVD1)                           0.09       7.64 r
+  U302/Z (AOI31D1)                         0.12       7.76 f
+  U300/Z (INVD1)                           0.10       7.86 r
+  U301/Z (INVD2)                           0.13       7.99 f
+  G702 (out)                               0.00       7.99 f
+  data arrival time                                   7.99
+
+  clock clk (rise edge)                    8.00       8.00
+  clock network delay (ideal)              2.00      10.00
+  output external delay                   -2.00       8.00
+  data required time                                  8.00
+  -----------------------------------------------------------
+  data required time                                  8.00
+  data arrival time                                  -7.99
+  -----------------------------------------------------------
+  slack (MET)                                         0.01
+
+
+1
+quit
+Memory usage for this session 149 Mbytes.
+Memory usage for this session including child processes 149 Mbytes.
+CPU usage for this session 5 seconds ( 0.00 hours ).
+Elapsed time for this session 6 seconds ( 0.00 hours ).
+
+Thank you...
