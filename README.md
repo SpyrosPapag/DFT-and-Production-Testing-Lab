@@ -1,6 +1,6 @@
 # VLSI DFT and Production Testing Lab
 
-This repo contains the last lab exerciseσ for the course *"Special Topics In Digital Systems Design*" of the **Department of Computer Engineering & Informatics** in **University of Patras**.
+This repo contains the lab exercises for the course *"Special Topics In Digital Systems Design*" of the **Department of Computer Engineering & Informatics** in **University of Patras**.
 
 ## Overview
 1. **Lab 1:** ATPG and Fault Simulation using Open-Source Tools (Atalanta, HOPE)
